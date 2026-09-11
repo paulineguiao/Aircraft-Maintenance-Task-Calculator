@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task Calculator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body>
+
+<div class="page">
+
+  <header class="masthead">
+    <div class="masthead-text">
+      <h1>Task Calculator</h1>
+      <p class="subtitle">Track component intervals against TSN, TSI, and TSO</p>
+    </div>
+    <div class="toolbar">
+      <button id="importBtn" class="btn btn-ghost">Import from Excel</button>
+      <button id="exportBtn" class="btn btn-primary">Download Excel</button>
+    </div>
+  </header>
+
+  <input type="file" id="excelFile" accept=".xlsx,.xls" hidden>
+
+  <main class="worksheet">
+    <div class="table-scroll">
+      <table id="taskTable">
+        <thead>
+          <tr>
+            <th class="col-num">#</th>
+            <th class="col-desc">Description</th>
+            <th class="col-num-cell">Current</th>
+            <th class="col-num-cell">Interval</th>
+            <th class="col-num-cell">TSN / TSI / TSO</th>
+            <th class="col-unit">Unit</th>
+            <th class="col-computed">Computed</th>
+            <th class="col-actions"></th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div class="worksheet-footer">
+      <button id="addRowBtn" class="btn btn-outline">+ Add row</button>
+      <span class="row-count"><span id="rowCount">0</span> rows</span>
+    </div>
+  </main>
+
+  <p class="hint">
+    Importing? Your file's first row is treated as a header and skipped. Columns should read, in order:
+    Description, Current, Interval, TSN/TSI/TSO, Unit.
+  </p>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
